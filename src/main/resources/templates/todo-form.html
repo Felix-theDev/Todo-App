@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Save Employee</title>
+</head>
+<body>
+    <div class="container">
+        <h3>Todo Directory</h3>
+
+        <hr>
+
+        <p class="h4 mb-4">Save Employee</p>
+
+        <form th:action="@{/todo/saveOrUpdate}" th:object="${todo}" method="post">
+            <input type="hidden" th:field="*{id}">
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <input type="text" th:field="*{description}" class="form-control" id="description" placeholder="Enter description">
+            </div>
+
+            <!-- Target date input field with label -->
+            <div class="mb-3">
+                <label for="target_date" class="form-label">Target Date</label>
+                <input type="date" th:field="*{target_date}" class="form-control" id="target_date">
+            </div>
+            <div class="mb-3 form-check">
+                <input type="checkbox" th:field="*{is_done}" class="form-check-input" id="isDone">
+                <label for="isDone" class="form-check-label">Is Done</label>
+            </div>
+            <button type="submit" class="btn btn info col-2">Save</button>
+
+        </form>
+
+        <hr>
+
+        <a th:href="@{/todo/todos}">Back To Employees List</a>
+
+    </div>
+</body>
+</html>
